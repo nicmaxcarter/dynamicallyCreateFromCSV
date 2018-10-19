@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFFFFF;
+    padding: 10px 20px;
+    font-family: Arial;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Center website */
+.main {
+    max-width: 1000px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 50px;
+    word-break: break-all;
+}
+
+.header {
+    margin-bottom: 5px;
+}
+
+.subHeader {
+    font-weight: 300;
+    color: #888888;
+    margin-top: 0px;
+    padding-left: 5px;
+}
+
+.case {
+    text-transform: uppercase;
+}
+
+.row {
+    margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column (if you want) */
+.row,
+.row > .column {
+    padding: 10px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 25%;
+}
+
+/* Clear floats after rows */ 
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Content */
+.content {
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    padding-bottom: 15px;
+}
+
+.content-main {
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+.full-width-img {
+    width: 100%;
+}
+
+
+
+button {
+    /* background: #4CAF50; Green */
+    border: none;
+    color: white;
+    padding: .5em 1em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: .75em;
+    border-radius: 15px;
+    cursor:pointer;
+}
+
+/* Color Option One =============================================== */
+
+/* button.medium {
+    background-color: #86CB92;
+}
+
+button.medium:hover {
+    background-color: rgb(102, 156, 111);
+}
+
+button.large {
+    background-color: #F27F68;
+}
+
+button.large:hover {
+    background-color: rgb(197, 102, 82); 
+ } */
+
+/* Color Option Two =============================================== */
+
+/* button.medium {
+    background-color: rgb(107, 160, 117);
+}
+
+button.medium:hover {
+    background-color: rgb(42, 61, 45);
+}
+
+button.large {
+    background-color: rgb(163, 87, 72);
+}
+
+button.large:hover {
+    background-color: rgb(114, 61, 51);
+} */
+
+
+/* Color Option Three =============================================== */
+
+button.medium {
+    background-color: #757780;
+    margin-right: 5px !important;
+}
+
+button.medium:hover {
+    background-color: #616268;
+}
+
+button.large {
+    background-color: rgb(78, 89, 99);
+}
+
+button.large:hover {
+    background-color: rgb(52, 59, 66);
+}
+
+/* button.back {
+    background-color: #888888;
+    font-size: 14px;
+}
+
+button.back:hover {
+    background-color: #666666;
+} */
+
+button.back {
+    background-color: rgb(238, 92, 63);
+    font-size: 14px;
+    padding: 5px 20px;
+}
+
+button.back:hover {
+    background-color: rgb(175, 42, 15); 
+ }
+
+
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+    .column {
+        width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
