@@ -1,5 +1,8 @@
 function createElement() {
 
+    var medLink = 'LINK_TO_MEDIUM_IMAGE_GOES_HERE';
+    var lrgLink = 'LINK_TO_LARGE_IMAGE_GOES_HERE';
+
     // <div class="column">
     var column = document.createElement('div');
     column.setAttribute('class', 'column');
@@ -17,20 +20,18 @@ function createElement() {
     var title = document.createElement('h3');
     title.innerHTML = "Title";
 
-    var medLink = "copyToClipboard('LINK_TO_MEDIUM_IMAGE_GOES_HERE')";
 
     var medButton = document.createElement('button');
     medButton.setAttribute('name', 'button');
     medButton.setAttribute('class', 'medium');
-    medButton.setAttribute('onclick', medLink);
+    medButton.setAttribute('onclick', "copyToClipboard('" + medLink + "')");
     medButton.innerHTML = "Medium";
 
-    var lrgLink = "copyToClipboard('LINK_TO_LARGE_IMAGE_GOES_HERE')";
 
     var lrgButton = document.createElement('button');
     lrgButton.setAttribute('name', 'button');
     lrgButton.setAttribute('class', 'large');
-    lrgButton.setAttribute('onclick', lrgLink);
+    lrgButton.setAttribute('onclick', "copyToClipboard('" + lrgLink + "')");
     lrgButton.innerHTML = "Large";
 
     // attach created elements
@@ -43,3 +44,4 @@ function createElement() {
     return column;
 
 }
+
