@@ -1,136 +1,128 @@
-document.body.onload = main();
+// document.body.onload = openFile('./data.csv');
 
-// Driver function
-function main() {
+var lines;
+
+
+// Opens the file with an xmlhttp request, sends it to the reqListener
+function openFile(name) {
 
   console.log('log begin');
+  var oReq = new XMLHttpRequest();
+  oReq.addEventListener("load", respond);
+  oReq.open("GET", name);
+  oReq.send();
+}
 
-  // Creates preset Image Card
-  var col = createElement();
+// Responds to the http request
+function respond() {
+  console.log('file opened');
 
-  // Add created card to the body
-  addThis(col);
+  // store the text version of the file read
+  var string = this.responseText;
 
-  readFile();
+  // call the main function, passing it the opened string
+  main(string);
+}
+
+
+// Driver function
+function main(string) {
+
+  // Open file and sends it to readFile()
+  console.log('file sent to readFile()');
+
+  readFile(string);
+  console.log('file read');
+
+  // console.log(lines);
+
+  var brand = lines[0][0];
+  // var brand = "temp";
+  // console.log(lines[1]);
+
+  createMainDriver(brand);
+  createElementDriver(lines);
+
 
   console.log('log end');
 }
 
+// Simple driver function to call necessary function to create main secion of HTML
+function createMainDriver(brand) {
+  console.log('in createMainDriver()');
+  // console.log('lines: ' + lines);
+  // console.log('brand: ' + brand);
+  var mainSec = createMain(brand);
+
+  addToBody(mainSec);
+}
+
+// Simple driver function to call necessary function to create image element secion of HTML
+function createElementDriver(array) {
+  for (var i = 1; i < array.length; i++) {
+    // console.log("TITLE: " + array[i][0]);
+    for (var k = 1; k < array[i].length; k = k + 2) {
+      var title = array[i][0];
+      var med = array[i][k];
+      var lrg = array[i][k + 1];
+
+      // Check to see if medium or large are empty
+      // If so, replace it with 'no-img' to alert later functions
+      if (med == '' || med == null) {
+        med = 'no-img';
+      }
+
+      if (lrg == '' || lrg == null) {
+        lrg = 'no-img';
+      }
+
+      // If both med and large are empty, do not continue
+      if (!(med == 'no-img' && lrg == 'no-img')) {
+        var col = createElement(title, med, lrg);
+        addAfterPlaceHolder(col);
+      }
+    }
+  }
+}
+
+// Processes the file sent to it
+function readFile(string) {
+  // var contents = text;
+  // console.log(contents);
+  var allTextLines = string.split(/\r\n|\n/);
+  var headers = allTextLines[0].split(',');
+  lines = [];
+  // var lines = [];
+  lines.push(headers);
+
+  // console.log(headers);
+
+  for (var i = 1; i < allTextLines.length; i++) {
+    var data = allTextLines[i].split(',');
+    // console.log('data:' + i + '\n' + data);
+    var tarr = [];
+    for (var j = 0; j < data.length; j++) {
+      tarr.push(data[j]);
+    }
+    lines.push(tarr);
+    // console.log( tarr );
+  }
+}
 
 
-// This function takes the element passed to it and adds the element
+// Takes the element passed to it and adds the element
 // to the body BEFORE the end of the "row" div
-function addThis(elementToAdd) {
+function addAfterPlaceHolder(elementToAdd) {
   var placeholder = document.getElementById('main-row');
   placeholder.insertAdjacentElement('beforeend', elementToAdd);
   console.log('element added');
 };
 
-
-function readFile() {
-  console.log('start read file');
-
-  // var data = Papa.parse(csv);
-
-  // Check for the various File API support.
-  if (window.File && window.FileReader && window.FileList && window.Blob) {
-    // Great success! All the File APIs are supported.
-  } else {
-    alert('The File APIs are not fully supported in this browser.');
-  }
-
-  // var fileName = './mini-temp.csv';
-
-  // var file = fileName.target.files[0];
-
-  // console.log(fileName);
-  // console.log(file);
-
-  // var txt = '';
-  // var xmlhttp = new XMLHttpRequest();
-  // xmlhttp.onreadystatechange = function () {
-  //   if (xmlhttp.status == 200 && xmlhttp.readyState == 4) {
-  //     txt = xmlhttp.responseText;
-  //   }
-  // };
-  // xmlhttp.open("GET", "mini-temp.csv", true);
-  // xmlhttp.send();
-
-
-  // readSingleFile('mini-temp.csv');
-  // readTextFile('file:///C:/Users/mcarter/Documents/service-source-exp-local/Testing/test.txt');
-
-  console.log('end read file');
+// Add provided element to the body
+function addToBody(elementToAdd) {
+  var placeholder = document.getElementById('main');
+  placeholder.insertAdjacentElement('afterbegin', elementToAdd);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// DIDNT WORK
-function readTextFile(file)
-{
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-                console.log(allText);
-                alert(allText);
-            }
-        }
-    }
-    
-    // rawFile.send(null);
-}
-
-
-
-
-
-
-
-// DIDNT WORK
-function readSingleFile(e) {
-  var file = e.target.files[0];
-  if (!file) {
-    return;
-  }
-  var reader = new FileReader();
-  reader.onload = function(e) {
-    var contents = e.target.result;
-    // Display file content
-    displayContents(contents);
-  };
-  reader.readAsText(file);
-}
- 
-function displayContents(contents) {
-  var element = document.getElementById('file-content');
-  element.innerHTML = contents;
-}
- 
-
-
-
-
-
-
 
 
 const copyToClipboard = str => {

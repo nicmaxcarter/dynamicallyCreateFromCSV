@@ -45,6 +45,7 @@ h1 {
 .row,
 .row > .column {
     padding: 10px;
+    margin-bottom: 16px;
 }
 
 /* Create four equal columns that floats next to each other */
@@ -93,6 +94,7 @@ button {
     font-size: .75em;
     border-radius: 15px;
     cursor:pointer;
+    margin-right: 5px !important;
 }
 
 /* Color Option One =============================================== */
@@ -136,7 +138,6 @@ button.large:hover {
 
 button.medium {
     background-color: #757780;
-    margin-right: 5px !important;
 }
 
 button.medium:hover {
