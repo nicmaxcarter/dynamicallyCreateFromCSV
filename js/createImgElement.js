@@ -10,7 +10,7 @@ function createMain(brand) {
     subHeader.innerHTML = "service images";
 
     var backLink = document.createElement('a');
-    backLink.setAttribute('href', '../index.html');
+    backLink.setAttribute('href', '../../index.html');
 
     var backButton = document.createElement('button');
     backButton.setAttribute('class', 'back');

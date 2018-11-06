@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
-
 * {
     box-sizing: border-box;
 }
@@ -11,7 +10,12 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 /* Center website */
+
 .main {
     max-width: 1000px;
     margin: auto;
@@ -19,7 +23,14 @@ body {
 
 h1 {
     font-size: 50px;
+    line-height: 40px;
     word-break: break-all;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+h2.subHeader.case {
+    padding-left: 1px;
 }
 
 .header {
@@ -42,19 +53,21 @@ h1 {
 }
 
 /* Add padding BETWEEN each column (if you want) */
-.row,
-.row > .column {
+
+.row, .row>.column {
     padding: 10px;
     margin-bottom: 16px;
 }
 
 /* Create four equal columns that floats next to each other */
+
 .column {
     float: left;
     width: 25%;
 }
 
-/* Clear floats after rows */ 
+/* Clear floats after rows */
+
 .row:after {
     content: "";
     display: table;
@@ -62,16 +75,17 @@ h1 {
 }
 
 /* Content */
+
 .content {
     background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     padding: 10px;
     padding-bottom: 15px;
 }
 
 .content-main {
     background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
     padding: 10px;
     padding-bottom: 20px;
     padding-left: 20px;
@@ -80,8 +94,6 @@ h1 {
 .full-width-img {
     width: 100%;
 }
-
-
 
 button {
     /* background: #4CAF50; Green */
@@ -93,17 +105,17 @@ button {
     display: inline-block;
     font-size: .75em;
     border-radius: 15px;
-    cursor:pointer;
+    cursor: pointer;
     margin-right: 5px !important;
 }
 
 /* Color Option One =============================================== */
 
-/* button.medium {
+button.submit {
     background-color: #86CB92;
 }
 
-button.medium:hover {
+button.submit:hover {
     background-color: rgb(102, 156, 111);
 }
 
@@ -113,7 +125,7 @@ button.large {
 
 button.large:hover {
     background-color: rgb(197, 102, 82); 
- } */
+ }
 
 /* Color Option Two =============================================== */
 
@@ -132,7 +144,6 @@ button.large {
 button.large:hover {
     background-color: rgb(114, 61, 51);
 } */
-
 
 /* Color Option Three =============================================== */
 
@@ -168,12 +179,64 @@ button.back {
 }
 
 button.back:hover {
-    background-color: rgb(175, 42, 15); 
- }
+    background-color: rgb(175, 42, 15);
+}
 
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
+.flex-column {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.flex-column.left {
+    justify-content: flex-start;
+}
+
+.flex-column.right {
+    justify-content: flex-end;
+}
+
+.content-main.brand {
+    width: 40%;
+}
+
+.content-main.data {
+    margin-left: 20px;
+    width: 60%;
+}
+
+.no-shadow {
+    box-shadow: none;
+}
+
+#button-flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+input[type=text] {
+    width: 80%;
+    padding: 5px 20px;
+    /* margin: 8px 0; */
+    box-sizing: border-box;
+    border-color: #cccccc;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 20px;
+}
 
 /* Responsive layout - makes a two column-layout instead of four columns */
+
 @media screen and (max-width: 900px) {
     .column {
         width: 50%;
@@ -181,12 +244,13 @@ button.back:hover {
 }
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+
 @media screen and (max-width: 600px) {
     .column {
         width: 100%;
     }
-
     h1 {
         font-size: 24px;
+        line-height: 24px;
     }
 }
