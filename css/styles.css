@@ -96,7 +96,7 @@ h2.subHeader.case {
     width: 100%;
 }
 
-button {
+button, input[type="button"]{
     /* background: #4CAF50; Green */
     border: none;
     color: white;
@@ -120,11 +120,11 @@ button.submit:hover {
     background-color: rgb(102, 156, 111);
 }
 
-button.large {
+button.large, input.large {
     background-color: #F27F68;
 }
 
-button.large:hover {
+button.large:hover , input.large:hover {
     background-color: rgb(197, 102, 82); 
  }
 

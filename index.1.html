@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+
+
+</head>
+
+<body>
+
+
+
+    <div class="main">
+
+        <!-- <div class="flex-row">
+            <div class="flex-column left">
+                <h1 style="margin-bottom: 10px;">SERVICE IMAGES</h1>
+            </div>
+            <div class="flex-column right">
+                <div class="sub-flex">
+                    <button name="button" class="large">+ Add Brand</button>
+                    <button onclick="document.getElementById('file-input').click();">Open</button>
+                    <input id="file-input" type="file" name="name" style="display: none;" />
+                </div>
+            </div>
+        </div> -->
+
+        <hr>
+        <br />
+
+
+        <div class="row">
+
+
+            <div class="column">
+                <div class="content-main">
+
+                    <!-- Title ------------>
+                    <h2 class="case">Choose File</h2>
+
+
+                    <!-- <form action="/" method="post" enctype="multipart/form-data" id="form-id">
+                        Select image to upload:
+                        <input type="file" name="data-file" id="file-id">
+                        <input type="submit" value="Submit" />
+                        <button name="button" class="medium" onclick="uploadFile()">Upload file</button>
+                    </form> -->
+
+                    <form>
+
+                        <!-- The file to upload -->
+                        <p><input id="file-id" type="file" name="data-file" />
+
+                            <!--
+      Also by default, we disable the upload button.
+      If Ajax uploads are supported we'll enable it.
+    -->
+                            <input type="button" value="Upload" id="upload-button-id" /></p>
+
+                        <!-- A different field, just for the sake of the example -->
+                        <!-- <p><label>Some other field: <input name="other-field" type="text" id="other-field-id" /></label></p> -->
+
+                        <!-- And finally a submit button -->
+                        <!-- <p><input type="submit" value="Submit" /></p> -->
+
+
+
+                        <!-- From Online Souce, maybe it'll work -->
+                        <script>
+
+                            initFileOnlyAjaxUpload();
+
+                            function initFileOnlyAjaxUpload() {
+                                var uploadBtn = document.getElementById('upload-button-id');
+                                uploadBtn.onclick = function (evt) {
+                                    var formData = new FormData();
+
+                                    // Since this is the file only, we send it to a specific location
+                                    var action = './save.php';
+
+                                    // FormData only has the file
+                                    var fileInput = document.getElementById('file-id');
+                                    var file = fileInput.files[0];
+                                    // console.log(file);
+                                    formData.append('data-file', file);
+                                    // console.log(...formData);
+                                    // Code common to both variants
+                                    sendXHRequest(formData, action);
+                                }
+                            }
+
+                            // Once the FormData instance is ready and we know
+                            // where to send the data, the code is the same
+                            // for both variants of this technique
+                            function sendXHRequest(formData, uri) {
+                                // Get an XMLHttpRequest instance
+                                var xhr = new XMLHttpRequest();
+                                console.log(...formData);
+
+                                // Set up events
+                                xhr.upload.addEventListener('loadstart', onloadstartHandler, false);
+                                xhr.upload.addEventListener('progress', onprogressHandler, false);
+                                xhr.upload.addEventListener('load', onloadHandler, false);
+                                xhr.addEventListener('readystatechange', onreadystatechangeHandler, false);
+
+                                // Set up request
+                                xhr.open('POST', uri, true);
+
+                                // Fire!
+                                xhr.send(formData);
+                            }
+
+                            // Handle the start of the transmission
+                            function onloadstartHandler(evt) {
+                                var div = document.getElementById('upload-status');
+                                div.innerHTML = 'Upload started.';
+                            }
+
+                            // Handle the end of the transmission
+                            function onloadHandler(evt) {
+                                var div = document.getElementById('upload-status');
+                                div.innerHTML += '<' + 'br>File uploaded. Waiting for response.';
+                            }
+
+                            // Handle the progress
+                            function onprogressHandler(evt) {
+                                var div = document.getElementById('progress');
+                                var percent = evt.loaded / evt.total * 100;
+                                div.innerHTML = 'Progress: ' + percent + '%';
+                            }
+
+                            // Handle the response from the server
+                            function onreadystatechangeHandler(evt) {
+                                var status, text, readyState;
+
+                                try {
+                                    readyState = evt.target.readyState;
+                                    text = evt.target.responseText;
+                                    status = evt.target.status;
+                                }
+                                catch (e) {
+                                    return;
+                                }
+
+                                if (readyState == 4 && status == '200' && evt.target.responseText) {
+                                    var status = document.getElementById('upload-status');
+                                    status.innerHTML += '<' + 'br>Success!';
+
+                                    var result = document.getElementById('result');
+                                    result.innerHTML = '<p>The server saw it as:</p><pre>' + evt.target.responseText + '</pre>';
+                                }
+                            }
+
+
+                        </script>
+                    </form>
+
+                    <!-- Placeholders for messages set by event handlers -->
+                    <p id="upload-status"></p>
+                    <p id="progress"></p>
+                    <pre id="result"></pre>
+
+
+                    <!-- <button name="button" class="large" onclick="document.getElementById('file-input').click();">Choose
+                        File</button>
+
+                    <button name="button" class="large" onclick="addFolder()">Add Folder</button> -->
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+        <!-- <script>
+            function addFolder() {
+                console.log("start");
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+
+                        console.log("good");
+                    }
+                };
+                xhttp.open("GET", "test.php", true);
+                xhttp.send();
+            }
+
+            function uploadFile() {
+
+                var fileInput = document.getElementById('the-file');
+                var file = fileInput.files[0];
+                var formData = new FormData();
+                formData.append('file', file);
+
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+
+                        console.log("YEP");
+                    }
+                };
+                xhttp.open("POST", "./", true);
+                xhttp.send(formData);
+            }
+        </script> -->
+
+
+
+
+
+
+
+</body>
+
+</html>
