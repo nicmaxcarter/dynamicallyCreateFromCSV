@@ -1,16 +1,5 @@
 function createMain(brand) {
-
     var main = document.createElement('div');
-
-    // <div class="flex-row">
-    var flexRow = document.createElement('div');
-    flexRow.setAttribute('class', 'flex-row');
-
-    // <div class="flex-column left">
-    var left = document.createElement('div');
-    left.setAttribute('class', 'flex-column left');
-
-    var subLeft = document.createElement('div');
 
     var brandName = document.createElement('h1');
     brandName.setAttribute('class', 'header case');
@@ -20,20 +9,6 @@ function createMain(brand) {
     subHeader.setAttribute('class', 'subHeader case');
     subHeader.innerHTML = "service images";
 
-    var right = document.createElement('div');
-    right.setAttribute('class', 'flex-column right');
-
-    var subRight = document.createElement('div');
-    subRight.setAttribute('class', 'sub-flex');
-
-    var updateLink = document.createElement('a');
-    updateLink.setAttribute('href', '#')
-
-    var updateBtn = document.createElement('button');
-    updateBtn.setAttribute('name', 'update-data');
-    updateBtn.setAttribute('class', 'medium');
-    updateBtn.innerHTML = "+ Update Data File";
-
     var backLink = document.createElement('a');
     backLink.setAttribute('href', '../../index.html');
 
@@ -41,7 +16,7 @@ function createMain(brand) {
     backButton.setAttribute('class', 'back');
     backButton.innerHTML = "Back";
 
-    
+    backLink.appendChild(backButton);
 
     var mainRow = document.createElement('div');
     mainRow.setAttribute('id', 'main-row');
@@ -66,30 +41,14 @@ function createMain(brand) {
 
 
 
-    subLeft.appendChild(brandName);
-    subLeft.appendChild(subHeader);
-    left.appendChild(subLeft);
-    flexRow.appendChild(left);
-
-    backLink.appendChild(backButton);
-    subRight.appendChild(backLink);
-    updateLink.appendChild(updateBtn);
-    subRight.appendChild(updateLink);
-    
-    right.appendChild(subRight);
-    flexRow.appendChild(right);
-    
-
-    
-    main.appendChild(flexRow);
+    main.appendChild(brandName);
+    main.appendChild(subHeader);
     main.appendChild(document.createElement('hr'));
     main.appendChild(document.createElement('br'));
+    main.appendChild(backLink);
     main.appendChild(mainRow);
     main.appendChild(spacerRow);
 
-
-
-    
 
 
     return main;

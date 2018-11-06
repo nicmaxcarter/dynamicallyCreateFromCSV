@@ -41,6 +41,7 @@ h2.subHeader.case {
     font-weight: 300;
     color: #888888;
     margin-top: 0px;
+    margin-bottom: 0px;
     padding-left: 5px;
 }
 
@@ -85,7 +86,7 @@ h2.subHeader.case {
 
 .content-main {
     background-color: white;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
     padding: 10px;
     padding-bottom: 20px;
     padding-left: 20px;
@@ -199,6 +200,11 @@ button.back:hover {
 
 .flex-column.left {
     justify-content: flex-start;
+}
+.flex-column.left.vertical {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
 }
 
 .flex-column.right {
