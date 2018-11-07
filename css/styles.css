@@ -221,6 +221,11 @@ button.back:hover {
     width: 60%;
 }
 
+.content-main.data.full {
+    margin: 0px;
+    width: 100%;
+}
+
 .no-shadow {
     box-shadow: none;
 }

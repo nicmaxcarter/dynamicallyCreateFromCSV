@@ -3,7 +3,7 @@
 
 <head>
 
-    <link rel="stylesheet" type="text/css" href="../../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styles.css?v=1.2">
 
 
 </head>
@@ -16,7 +16,7 @@
 
         <div class="flex-row">
             <div class="flex-column left">
-                <h1>ADD BRAND</h1>
+                <h1 class="header case">Update BMW</h1>
             </div>
             <div class="flex-column right">
                 <div class="sub-flex">
@@ -39,17 +39,8 @@
         <div class="flex-row">
 
 
-            <div class="content-main brand">
 
-                <!-- Title ------------>
-                <h2 class="case">Brand/Make</h2>
-
-
-                    <input type="text" id="brand-input" name="brand-input" placeholder="Enter Brand Here"><br>
-                    <!-- <input type="submit" value="Submit"> -->
-            </div>
-
-            <div class="content-main data">
+            <div class="content-main data full">
 
                 <!-- Title ------------>
                 <h2 class="case">Data File</h2>
@@ -100,7 +91,7 @@
 
 
                 <button name="back" class="back" id="upload-button-id"><b>Submit Brand</b></button>
-                <a href="./index.html">
+                <a href="../../index.html">
                     <button id="return-home-btn" class="submit hidden"><b>Return to Brands</b></button>
                 </a>
                 <!-- <input type="button" value="Upload" id="upload-button-id" /> -->
@@ -112,31 +103,39 @@
 
         <script>
 
+
+            // Once a file is selected, change the specified text the filename
+            var input = document.getElementById('file-id');
+            input.onchange = function (e) {
+                var name = this.value;
+                name = name.replace(/.*[\/\\]/, '');
+                var span = document.getElementById('file-name');
+                span.setAttribute('placeholder', name);
+            }
+
             initFileOnlyAjaxUpload();
 
             function initFileOnlyAjaxUpload() {
                 var uploadBtn = document.getElementById('upload-button-id');
                 uploadBtn.onclick = function (evt) {
                     var formData = new FormData();
-                    // console.log(document.getElementById('brand-input').value);
-                    
+
 
                     // Since this is the file only, we send it to a specific location
-                    var action = './php/new-brand.php';
+                    var action = '../../php/update-brand.php';
 
                     // FormData only has the file
                     var fileInput = document.getElementById('file-id');
                     var file = fileInput.files[0];
-                    var brandName = document.getElementById('brand-input').value;
-                    console.log(brandName);
+                    var brandName = getBrand();
                     // console.log(file);
                     formData.append('data-file', file);
-                    formData.append('brand', document.getElementById('brand-input').value);
+                    formData.append('brand-name', brandName);
                     // console.log(...formData);
                     // Code common to both variants
                     sendXHRequest(formData, action);
                 }
-                
+
             }
 
             // Once the FormData instance is ready and we know
@@ -201,23 +200,21 @@
                     result.innerHTML = '<p>The server saw it as:</p><pre>' + evt.target.responseText + '</pre>';
                 }
 
-                document.getElementById('upload-button-id').style.display='none';
-                document.getElementById('return-home-btn').style.display='block';
+                document.getElementById('upload-button-id').style.display = 'none';
+                document.getElementById('return-home-btn').style.display = 'block';
 
 
             }
 
 
-        </script>
 
-        <script>
+            
 
-            var input = document.getElementById('file-id');
-            input.onchange = function (e) {
-                var name = this.value;
-                name = name.replace(/.*[\/\\]/, '');
-                var span = document.getElementById('file-name');
-                span.setAttribute('placeholder', name);
+            function getBrand() {
+                var loc = window.location.pathname;
+                paths = loc.split('/');
+                paths.pop();
+                return paths.pop();
             }
 
 
