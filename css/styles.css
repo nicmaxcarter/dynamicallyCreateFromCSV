@@ -96,7 +96,7 @@ h2.subHeader.case {
     width: 100%;
 }
 
-button, input[type="button"]{
+button, label.label-btn{
     /* background: #4CAF50; Green */
     border: none;
     color: white;
@@ -114,19 +114,20 @@ button, input[type="button"]{
 
 button.submit {
     background-color: #86CB92;
+    font-size: 14px;
 }
 
 button.submit:hover {
     background-color: rgb(102, 156, 111);
 }
 
-button.large, input.large {
+/* .large {
     background-color: #F27F68;
 }
 
-button.large:hover , input.large:hover {
+.large:hover , .large:hover {
     background-color: rgb(197, 102, 82); 
- }
+ } */
 
 /* Color Option Two =============================================== */
 
@@ -148,19 +149,19 @@ button.large:hover {
 
 /* Color Option Three =============================================== */
 
-button.medium {
+.medium {
     background-color: #757780;
 }
 
-button.medium:hover {
+.medium:hover {
     background-color: #616268;
 }
 
-button.large {
+.large {
     background-color: rgb(78, 89, 99);
 }
 
-button.large:hover {
+.large:hover {
     background-color: rgb(52, 59, 66);
 }
 
@@ -259,4 +260,26 @@ input[type=text] {
         font-size: 24px;
         line-height: 24px;
     }
+}
+
+
+
+
+/* Styling for the file inputs */
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+.hidden {
+    display: none;
 }

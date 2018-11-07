@@ -1,9 +1,10 @@
 <?php
 
-// check to see if files are empty
+// Check to see if folder already exists
 
-// if files aren't empty, check to see if file is a csv
-$reqFileType = array('application/vnd.ms-excel', 'text/plain', 'text/csv', 'text/tsv');
+// Add folder
+
+// Add 
 
 
 // continue if the filetype

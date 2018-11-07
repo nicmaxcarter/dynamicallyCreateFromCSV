@@ -27,7 +27,7 @@ function createMain(brand) {
     subRight.setAttribute('class', 'sub-flex');
 
     var updateLink = document.createElement('a');
-    updateLink.setAttribute('href', '#')
+    updateLink.setAttribute('href', './update_data.html')
 
     var updateBtn = document.createElement('button');
     updateBtn.setAttribute('name', 'update-data');

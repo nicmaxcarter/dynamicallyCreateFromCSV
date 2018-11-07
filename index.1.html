@@ -59,14 +59,6 @@
     -->
                             <input type="button" value="Upload" id="upload-button-id" /></p>
 
-                        <!-- A different field, just for the sake of the example -->
-                        <!-- <p><label>Some other field: <input name="other-field" type="text" id="other-field-id" /></label></p> -->
-
-                        <!-- And finally a submit button -->
-                        <!-- <p><input type="submit" value="Submit" /></p> -->
-
-
-
                         <!-- From Online Souce, maybe it'll work -->
                         <script>
 
@@ -163,10 +155,6 @@
                     <pre id="result"></pre>
 
 
-                    <!-- <button name="button" class="large" onclick="document.getElementById('file-input').click();">Choose
-                        File</button>
-
-                    <button name="button" class="large" onclick="addFolder()">Add Folder</button> -->
                 </div>
             </div>
 
@@ -174,46 +162,6 @@
 
 
         </div>
-
-
-        <!-- <script>
-            function addFolder() {
-                console.log("start");
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-
-                        console.log("good");
-                    }
-                };
-                xhttp.open("GET", "test.php", true);
-                xhttp.send();
-            }
-
-            function uploadFile() {
-
-                var fileInput = document.getElementById('the-file');
-                var file = fileInput.files[0];
-                var formData = new FormData();
-                formData.append('file', file);
-
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-
-                        console.log("YEP");
-                    }
-                };
-                xhttp.open("POST", "./", true);
-                xhttp.send(formData);
-            }
-        </script> -->
-
-
-
-
-
-
 
 </body>
 
