@@ -1,9 +1,7 @@
 <?php
 
-// Check to see if folder already exists
 
 $brand = $_POST['brand-name'];
-echo $brand;
 
 // if files aren't empty, check to see if file is a csv
 $reqFileType = array('application/vnd.ms-excel', 'text/plain', 'text/csv', 'text/tsv');
@@ -25,8 +23,6 @@ if (in_array($_FILES['data-file']['type'], $reqFileType)) {
         $t = time();
     }
 
-    
-
     // place new file in local directory and name it data.csv
 
     if (move_uploaded_file($_FILES['data-file']['tmp_name'], $currentFile)) {
@@ -44,5 +40,3 @@ if (in_array($_FILES['data-file']['type'], $reqFileType)) {
 } else {
     die("Sorry, wrong file type");
 }
-
-echo 'done';
