@@ -79,18 +79,11 @@ function createMain(brand) {
     right.appendChild(subRight);
     flexRow.appendChild(right);
     
-
-    
     main.appendChild(flexRow);
     main.appendChild(document.createElement('hr'));
     main.appendChild(document.createElement('br'));
     main.appendChild(mainRow);
     main.appendChild(spacerRow);
-
-
-
-    
-
 
     return main;
 }
@@ -108,11 +101,9 @@ function createElement(titleTxt, med, lrg) {
     var content = document.createElement('div');
     content.setAttribute('class', 'content');
 
-    // <img class="full-width-img" src="https://via.placeholder.com/350x230">
     var fullWidthImg = document.createElement('IMG');
     fullWidthImg.setAttribute('class', 'full-width-img');
     fullWidthImg.src = med;
-    // fullWidthImg.src = "https://via.placeholder.com/350x230";
 
     // <h3>Accessories</h3>
     var title = document.createElement('h3');
