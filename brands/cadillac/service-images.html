@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../../css/styles.css">
+    <script src="../../js/createImgElement.js"></script>
+    <meta http-equiv="cache-control" content="no-cache" />
+</head>
+
+<body onload="openFile('./data.csv?v=' + getVersion())">
+    <div id="main" class="main"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../../js/onLoad.js"></script>
+
+    <script>
+        // returns time and date, resulting in a unique identifier for each load 
+        // to prevent the server from caching the data file.
+        function getVersion() {
+            var dt = new Date();
+            console.log(dt.toLocaleTimeString());
+            return dt.toLocaleTimeString();
+        }
+    </script>
+</body>
+
+</html> 
