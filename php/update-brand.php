@@ -1,7 +1,9 @@
 <?php
 
 
-$brand = $_POST['brand-name'];
+$brand = urldecode($_POST['brand-name']);
+$archDir = '../brands/' . $brand . '/archive';
+
 
 // if files aren't empty, check to see if file is a csv
 $reqFileType = array('application/vnd.ms-excel', 'text/plain', 'text/csv', 'text/tsv');
@@ -9,15 +11,19 @@ $reqFileType = array('application/vnd.ms-excel', 'text/plain', 'text/csv', 'text
 // continue if the filetype
 if (in_array($_FILES['data-file']['type'], $reqFileType)) {
 
+    echo $brand;
+    echo $archDir;
+
+
     // if archive folder doesn't already exist, create it
-    if (!file_exists('../brands/' . $brand . '/archive')) {
-        mkdir('../brands/' . $brand . '/archive', 0777, true);
+    if (!file_exists($archDir)) {
+        mkdir($archDir, 0777, true);
     }
 
     // if data.csv already exists
     // move data.csv to archive folder and rename it
     $currentFile = '../brands/' . $brand . '/data.csv';
-    $archiveFile = '../brands/' . $brand . '/archive/data-' . date('m-d-Y-h-i-sa', time()) . '.csv';
+    $archiveFile = $archDir . '/data-' . date('m-d-Y-h-i-sa', time()) . '.csv';
     if(file_exists($currentFile)) {
         rename ($currentFile, $archiveFile);
         $t = time();

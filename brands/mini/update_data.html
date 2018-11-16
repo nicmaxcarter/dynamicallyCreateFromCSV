@@ -3,8 +3,8 @@
 
 <head>
     <meta http-equiv="cache-control" content="no-cache" />
-    <link rel="stylesheet" type="text/css" href="../../css/styles.css?v=1.5">
-    <script src="../../js/update-scripts.js?v=12"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/styles.css?v=2?v=1.5">
+    <script src="../../js/update-scripts.js?v=13"></script>
 </head>
 
 <body>
@@ -63,7 +63,7 @@
 
             <div id="button-flex-row" class="content-main data no-shadow">
 
-                <button name="back" class="back" id="upload-button-id"><b>Submit Brand</b></button>
+                <button name="submit-brand" class="back" id="upload-button-id"><b>Submit Brand</b></button>
                 <a href="../../index.html">
                     <button id="return-home-btn" class="submit hidden"><b>Return to Brands</b></button>
                 </a>
@@ -93,7 +93,7 @@
                 var loc = window.location.pathname;
                 paths = loc.split('/');
                 paths.pop();
-                return paths.pop();
+                return decodeURI(paths.pop());
             }
 
         </script>

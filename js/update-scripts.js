@@ -76,13 +76,13 @@ function onreadystatechangeHandler(evt) {
     }
 
     // ONLY TOGGLE THIS FOR TESTING
-    // if (readyState == 4 && status == '200' && evt.target.responseText) {
-    //     var status = document.getElementById('upload-status');
-    //     status.innerHTML += '<' + 'br>Success!';
+    if (readyState == 4 && status == '200' && evt.target.responseText) {
+        var status = document.getElementById('upload-status');
+        status.innerHTML += '<' + 'br>Success!';
 
-    //     var result = document.getElementById('result');
-    //     result.innerHTML = '<p>The server saw it as:</p><pre>' + evt.target.responseText + '</pre>';
-    // }
+        var result = document.getElementById('result');
+        result.innerHTML = '<p>The server saw it as:</p><pre>' + evt.target.responseText + '</pre>';
+    }
 
     document.getElementById('upload-button-id').style.display = 'none';
     document.getElementById('return-home-btn').style.display = 'block';
